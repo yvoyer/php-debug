@@ -1,0 +1,33 @@
+{
+    "name": "star/debug",
+    "description": "Package that provides wrappers for memory and timer usage.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Yannick Voyer",
+            "email": "star.yvoyer@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {
+            "Star\\Debug\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Star\\Debug\\": "tests"
+        }
+    },
+    "require": {
+        "php": "^7.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.5"
+    },
+    "config": {
+        "bin-dir": "bin",
+        "sort-package": true
+    }
+}
