@@ -8,6 +8,13 @@ final class MemoryUsage {
 	 */
 	private $value;
 
+	private $maps = [
+        ' bytes',
+        ' kilobytes',
+        ' megabytes',
+        ' gigabytes',
+    ];
+
 	/**
 	 * @param float $value
 	 */
@@ -17,14 +24,19 @@ final class MemoryUsage {
 
 	public function toString(): string {
 		$value = abs($this->value); // todo offer ways to show negative values
-		if ($value < 1024) {
-			return $value . " bytes";
-		} elseif ($value < 1048576) {
-			return round($value / 1024, 2) . " kilobytes";
-		}
+        $selectedSuffix = $this->maps[0];
+        foreach ($this->maps as $map) {
+            if ($value >= 1024) {
+                $value /= 1024;
+                continue;
+            }
+
+            $selectedSuffix = $map;
+            break;
+        }
 
         // todo add higher values
-		return round($value / 1048576, 2) . " megabytes";
+		return round($value / 1048576, 2) . $selectedSuffix;
 	}
 
 	public function isNegative(): bool

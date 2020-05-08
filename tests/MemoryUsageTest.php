@@ -23,8 +23,9 @@ final class MemoryUsageTest extends TestCase
             ['1023 bytes', 1023],
             ['1 kilobytes', 1024],
             ['1 megabytes', 1024 * 1024],
-            ['1024 megabytes', 1024 * 1024 * 1024],
+            ['1 gigabytes', 1024 * 1024 * 1024],
             'should ignore negative value' => ['1 kilobytes', -1024],
+            ['1024 gigabytes', 1024 * 1024 * 1024 * 1024],
         ];
     }
 }
